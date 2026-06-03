@@ -1,0 +1,290 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #1f2937;
+}
+
+
+.todo-container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 480px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #672be0;
+    letter-spacing: -0.05em;
+    text-align: center;
+}
+
+
+.week-calendar {
+    margin-bottom: 1.5rem;
+}
+
+.week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 4px;
+}
+
+#month-display {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #672be0;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.nav-btn:hover {
+    background-color: #f3f4f6;
+}
+
+.nav-btn:active {
+    transform: scale(0.9);
+}
+
+
+.week-days {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+
+.day-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 4px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+.day-card:hover {
+    background-color: #f3f4f6;
+}
+
+.day-card.today {
+    border-color: rgba(103, 43, 224, 0.3);
+}
+
+.day-card.selected {
+    background-color: #672be0;
+    color: white;
+    box-shadow: 0 4px 10px rgba(103, 43, 224, 0.2);
+}
+
+.day-name {
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.day-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+
+.todo-count {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: #e5e7eb;
+    color: #4b5563;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 24px;
+    text-align: center;
+}
+
+
+.day-card.selected .todo-count {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
+#todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#todo-input:focus {
+    border-color: #672be0;
+    box-shadow: 0 0 0 3px rgba(103, 43, 224, 0.15);
+}
+
+#add-btn {
+    background-color: #672be0;
+    color: white;
+    border: none;
+    padding: 0 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#add-btn:hover {
+    background-color: #5222b3;
+}
+
+
+.filter-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 10px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    color: #111827;
+    background-color: #f3f4f6;
+}
+
+.filter-btn.active {
+    color: #672be0;
+    background-color: rgba(103, 43, 224, 0.08);
+    font-weight: 600;
+}
+
+#todo-list {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 8px;
+    border-bottom: 1px solid #f3f4f6;
+    gap: 12px;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+    word-break: break-all;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.edit-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1.5px solid #672be0;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.btn-group {
+    display: flex;
+    gap: 6px;
+}
+
+.todo-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.complete-btn {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+.complete-btn:hover {
+    background-color: #e5e7eb;
+}
+.todo-item.completed .complete-btn {
+    background-color: #eef2ff;
+    color: #672be0;
+}
+
+.edit-btn {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+.edit-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.delete-btn {
+    background-color: #fef2f2;
+    color: #ef4444;
+}
+.delete-btn:hover {
+    background-color: #fee2e2;
+}
